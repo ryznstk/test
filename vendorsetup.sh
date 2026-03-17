@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-cd hardware/qcom-caf/sm8650/audio/agm
-git fetch https://github.com/LineageOS/android_vendor_qcom_opensource_agm lineage-23.2-caf-sm8650
-=======
 #!/bin/bash
 
 # Vendor (fresh clone)
@@ -12,10 +8,10 @@ git clone -b lineage-23.2 https://gitlab.com/blu96/vendor-xiaomi-peridot-rb.git 
 # Kernel source (fresh clone)
 echo "Cloning kernel source tree..."
 rm -rf kernel/xiaomi/sm8635
-git clone -b kprofile --depth 1 https://gitlab.com/blu96/kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635
+git clone -b auto --depth 1 https://gitlab.com/blu96/kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635
 
 rm -rf kernel/xiaomi/sm8635-modules
-git clone -b kpo --depth 1 https://gitlab.com/blu96/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules
+git clone -b auto --depth 1 https://gitlab.com/blu96/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules
 
 rm -rf kernel/xiaomi/sm8635-devicetrees
 git clone -b lineage-23.2 --depth 1 https://github.com/ryznstk/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees
@@ -23,7 +19,7 @@ git clone -b lineage-23.2 --depth 1 https://github.com/ryznstk/android_kernel_xi
 # Hardware xiaomi (fresh clone)
 echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
-git clone -b lineage-23.2 https://github.com/ryznstk/android_hardware_xiaomi.git hardware/xiaomi
+git clone https://github.com/ryznstk/android_hardware_xiaomi.git hardware/xiaomi
 
 rm -rf packages/apps/XiaomiDolby
 
@@ -40,67 +36,106 @@ git clone https://github.com/sm8635-dev/vendor_xiaomi_peridot-miuicamera.git ven
 # Gamebar
 echo "Cloning Gamebar tree..."
 rm -rf packages/apps/GameBar
-git clone https://github.com/droidcore/packages_apps_GameBar.git packages/apps/GameBar
+git clone https://github.com/ryznstk/packages_apps_GameBar.git packages/apps/GameBar
 
 # LMO
-echo "Cloning LMOfreeroam tree..."
-rm -rf packages/apps/LMOFreeform
-git clone https://github.com/ryznstk/packages_apps_LMOFreeforms.git packages/apps/LMOFreeform
+echo "fetching LMOfreeroam tree..."
+cd packages/apps/LMOFreeform
+git fetch https://github.com/ryznstk/packages_apps_LMOFreeforms 16.2
+git reset --hard FETCH_HEAD
+croot
 
 rm -rf packages/apps/DepthWallpaperHelper
+
+rm -rf packages/apps/KProfiles
 
 # Part
 echo "Cloning Parts tree..."
 rm -rf packages/apps/XiaomiParts
-<<<<<<< HEAD
 git clone https://github.com/ryznstk/packages_apps_XiaomiParts.git packages/apps/XiaomiParts
-=======
 
 # ViperFX
 rm -rf packages/apps/ViPER4AndroidFX
 git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 
-# KProfiles (fresh clone)
-echo "Cloning KProfiles..."
-rm -rf packages/apps/KProfiles
-git clone https://github.com/droidcore/packages_apps_KProfiles.git packages/apps/KProfiles
->>>>>>> c82b26a (v4a)
-
 cd system/sepolicy
 git fetch https://github.com/ryznstk/lunaris_system_sepolicy.git test
->>>>>>> ee8ecfe (v4a)
 git reset --hard FETCH_HEAD
 croot
 
-cd hardware/qcom-caf/sm8650/audio/graphservices
-git fetch https://github.com/LineageOS/android_vendor_qcom_opensource_audioreach-graphservices lineage-23.2-caf-sm8650
-git reset --hard FETCH_HEAD
-croot
-
-cd hardware/qcom-caf/sm8650/audio/pal
-git fetch https://github.com/LineageOS/android_vendor_qcom_opensource_arpal-lx lineage-23.2-caf-sm8650
-git reset --hard FETCH_HEAD
-croot
-
-cd hardware/qcom-caf/sm8650/audio/primary-hal
-git fetch https://github.com/LineageOS/android_hardware_qcom_audio-ar lineage-23.2-caf-sm8650
-git reset --hard FETCH_HEAD
-croot
-
-cd hardware/lineage/interfaces
-git fetch https://github.com/sm8635-dev/hardware_lineage_interfaces sixteen
+cd build/soong
+git fetch https://github.com/ryznstk/build_soong test
 git reset --hard FETCH_HEAD
 croot
 
 cd device/lineage/sepolicy
-git fetch https://github.com/sm8635-dev/device_lineage_sepolicy sixteen
+git fetch https://github.com/Lunaris-AOSP/device_lineage_sepolicy 16.2
 git reset --hard FETCH_HEAD
 croot
 
-<<<<<<< HEAD
-rm -rf vendor/yaap/signing/keys
-git clone https://github.com/Neon-Duchamp/keys.git -b yaap-keys vendor/yaap/signing/keys
-=======
+cd hardware/interfaces
+git fetch https://github.com/Lunaris-AOSP/hardware_interfaces.git test
+git reset --hard FETCH_HEAD
+croot
+
+cd packages/apps/Launcher3
+git fetch https://github.com/Lunaris-AOSP/packages_apps_Launcher3 test
+git reset --hard FETCH_HEAD
+croot
+
+cd packages/modules/Bluetooth
+git fetch https://github.com/Lunaris-AOSP/packages_modules_Bluetooth 16.2
+git reset --hard FETCH_HEAD
+croot
+
+cd frameworks/base
+git fetch https://github.com/Lunaris-AOSP/frameworks_base test
+git reset --hard FETCH_HEAD
+croot
+
+cd frameworks/native
+git fetch https://github.com/Lunaris-AOSP/frameworks_native 16.2
+git reset --hard FETCH_HEAD
+croot
+
+cd packages/apps/Settings
+git fetch https://github.com/ryznstk/packages_apps_Settings test
+git reset --hard FETCH_HEAD
+croot
+
+cd packages/apps/Singularity 
+git fetch https://github.com/Lunaris-AOSP/packages_apps_Singularity test
+git reset --hard FETCH_HEAD
+croot
+
+cd vendor/lineage
+git fetch https://github.com/Lunaris-AOSP/vendor_lineage test
+git reset --hard FETCH_HEAD
+croot
+
+cd vendor/extras
+git fetch https://github.com/Lunaris-AOSP/vendor_extras test
+git reset --hard FETCH_HEAD
+croot
+
+cd device/qcom/sepolicy_vndr/sm8650
+git fetch https://github.com/LineageOS/android_device_qcom_sepolicy_vndr.git lineage-23.2-caf-sm8650
+git reset --hard FETCH_HEAD
+croot
+
+cd hardware/qcom-caf/common
+git fetch https://github.com/LineageOS/android_hardware_qcom-caf_common lineage-23.2
+git reset --hard FETCH_HEAD
+croot
+
+# Refresh signing keys
+if [ -d vendor/lineage-priv/keys ]; then
+  echo "Removing existing signing keys..."
+  rm -rf vendor/lineage-priv/keys
+fi
+echo "Cloning fresh signing keys..."
+git clone https://github.com/droidcore/private_key.git -b main vendor/lineage-priv/keys
+
 # Always back to root at the end
 if command -v croot &>/dev/null; then
   croot
@@ -109,4 +144,3 @@ else
 fi
 
 echo "vendorsetup.sh execution complete."
->>>>>>> ee8ecfe (v4a)
