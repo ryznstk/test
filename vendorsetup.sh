@@ -8,18 +8,18 @@ git clone -b lineage-23.2 https://gitlab.com/blu96/vendor-xiaomi-peridot-rb.git 
 # Kernel source (fresh clone)
 echo "Cloning kernel source tree..."
 rm -rf kernel/xiaomi/sm8635
-git clone -b auto --depth 1 https://gitlab.com/blu96/kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635
+git clone -b nokpo --depth 1 https://github.com/ryznstk/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635
 
 rm -rf kernel/xiaomi/sm8635-modules
-git clone -b auto --depth 1 https://gitlab.com/blu96/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules
+git clone -b lineage-23-2 --depth 1 https://github.com/ryznstk/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules
 
 rm -rf kernel/xiaomi/sm8635-devicetrees
-git clone -b lineage-23.2 --depth 1 https://github.com/ryznstk/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees
+git clone -b lineage-23.2 --depth 1 https://github.com/peridot-dev/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees
 
 # Hardware xiaomi (fresh clone)
 echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
-git clone https://github.com/ryznstk/android_hardware_xiaomi.git hardware/xiaomi
+git clone -b lun https://github.com/ryznstk/android_hardware_xiaomi.git hardware/xiaomi
 
 rm -rf packages/apps/XiaomiDolby
 
@@ -48,6 +48,7 @@ croot
 rm -rf packages/apps/DepthWallpaperHelper
 
 rm -rf packages/apps/KProfiles
+git clone https://github.com/ryznstk/packages_apps_KProfiles.git packages/apps/KProfiles
 
 # Part
 echo "Cloning Parts tree..."
@@ -60,61 +61,6 @@ git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages
 
 cd system/sepolicy
 git fetch https://github.com/ryznstk/lunaris_system_sepolicy.git test
-git reset --hard FETCH_HEAD
-croot
-
-cd build/soong
-git fetch https://github.com/ryznstk/build_soong test
-git reset --hard FETCH_HEAD
-croot
-
-cd device/lineage/sepolicy
-git fetch https://github.com/Lunaris-AOSP/device_lineage_sepolicy 16.2
-git reset --hard FETCH_HEAD
-croot
-
-cd hardware/interfaces
-git fetch https://github.com/Lunaris-AOSP/hardware_interfaces.git test
-git reset --hard FETCH_HEAD
-croot
-
-cd packages/apps/Launcher3
-git fetch https://github.com/Lunaris-AOSP/packages_apps_Launcher3 test
-git reset --hard FETCH_HEAD
-croot
-
-cd packages/modules/Bluetooth
-git fetch https://github.com/Lunaris-AOSP/packages_modules_Bluetooth 16.2
-git reset --hard FETCH_HEAD
-croot
-
-cd frameworks/base
-git fetch https://github.com/Lunaris-AOSP/frameworks_base test
-git reset --hard FETCH_HEAD
-croot
-
-cd frameworks/native
-git fetch https://github.com/Lunaris-AOSP/frameworks_native 16.2
-git reset --hard FETCH_HEAD
-croot
-
-cd packages/apps/Settings
-git fetch https://github.com/ryznstk/packages_apps_Settings test
-git reset --hard FETCH_HEAD
-croot
-
-cd packages/apps/Singularity 
-git fetch https://github.com/Lunaris-AOSP/packages_apps_Singularity test
-git reset --hard FETCH_HEAD
-croot
-
-cd vendor/lineage
-git fetch https://github.com/Lunaris-AOSP/vendor_lineage test
-git reset --hard FETCH_HEAD
-croot
-
-cd vendor/extras
-git fetch https://github.com/Lunaris-AOSP/vendor_extras test
 git reset --hard FETCH_HEAD
 croot
 
