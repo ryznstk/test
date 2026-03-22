@@ -3,7 +3,7 @@
 # Vendor (fresh clone)
 echo "Cloning vendor tree..."
 rm -rf vendor/xiaomi/peridot
-git clone -b lineage-23.2 https://gitlab.com/blu96/vendor-xiaomi-peridot-rb.git vendor/xiaomi/peridot
+git clone -b lineage-23.2 https://gitlab.com/blu96/proprietary-vendor-xiaomi-peridot-rb.git vendor/xiaomi/peridot
 
 # Kernel source (fresh clone)
 echo "Cloning kernel source tree..."
@@ -19,7 +19,7 @@ git clone -b lineage-23.2 --depth 1 https://github.com/peridot-dev/android_kerne
 # Hardware xiaomi (fresh clone)
 echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
-git clone -b lun https://github.com/ryznstk/android_hardware_xiaomi.git hardware/xiaomi
+git clone https://github.com/ryznstk/android_hardware_xiaomi.git hardware/xiaomi
 
 rm -rf packages/apps/XiaomiDolby
 
@@ -53,7 +53,7 @@ git clone https://github.com/ryznstk/packages_apps_KProfiles.git packages/apps/K
 # Part
 echo "Cloning Parts tree..."
 rm -rf packages/apps/XiaomiParts
-git clone https://github.com/ryznstk/packages_apps_XiaomiParts.git packages/apps/XiaomiParts
+git clone -b 16.2  https://github.com/ryznstk/packages_apps_XiaomiParts.git packages/apps/XiaomiParts
 
 # ViperFX
 rm -rf packages/apps/ViPER4AndroidFX
