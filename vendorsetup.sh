@@ -64,6 +64,11 @@ git fetch https://github.com/ryznstk/lunaris_system_sepolicy.git test
 git reset --hard FETCH_HEAD
 croot
 
+cd packages/apps/Settings
+git fetch https://github.com/ryznstk/packages_apps_Settings test
+git reset --hard FETCH_HEAD
+croot
+
 cd device/qcom/sepolicy_vndr/sm8650
 git fetch https://github.com/LineageOS/android_device_qcom_sepolicy_vndr.git lineage-23.2-caf-sm8650
 git reset --hard FETCH_HEAD
