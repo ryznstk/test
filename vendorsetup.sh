@@ -19,7 +19,7 @@ git clone -b lineage-23.2 --depth 1 https://github.com/peridot-dev/android_kerne
 # Hardware xiaomi (fresh clone)
 echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
-git clone https://github.com/ryznstk/android_hardware_xiaomi.git hardware/xiaomi
+git clone -b lk https://github.com/ryznstk/android_hardware_xiaomi.git hardware/xiaomi
 
 rm -rf packages/apps/XiaomiDolby
 
