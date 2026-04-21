@@ -41,7 +41,7 @@ git clone https://github.com/ryznstk/packages_apps_GameBar.git packages/apps/Gam
 # LMO
 echo "fetching LMOfreeroam tree..."
 cd packages/apps/LMOFreeform
-git fetch https://github.com/ryznstk/packages_apps_LMOFreeforms 16.2
+git fetch https://github.com/kenway214/packages_apps_LMOFreeform.git sixteen-qpr2
 git reset --hard FETCH_HEAD
 croot
 
@@ -61,23 +61,13 @@ git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages
 rm -rf packages/apps/TouchServices
 git clone https://github.com/ryznstk/packages_apps_TouchServices.git -b lineage-23.2 packages/apps/TouchServices
 
-cd build/soong
-git fetch https://github.com/ryznstk/build_soong test
-git reset --hard FETCH_HEAD
-croot
-
 cd system/sepolicy
-git fetch https://github.com/ryznstk/lunaris_system_sepolicy.git 16.2
+git fetch https://github.com/ryznstk/lunaris_system_sepolicy.git test
 git reset --hard FETCH_HEAD
 croot
 
 cd packages/apps/Settings
-git fetch https://github.com/ryznstk/packages_apps_Settings 16.2
-git reset --hard FETCH_HEAD
-croot
-
-cd frameworks/base
-git fetch https://github.com/Lunaris-AOSP/frameworks_base test
+git fetch https://github.com/ryznstk/packages_apps_Settings test
 git reset --hard FETCH_HEAD
 croot
 
